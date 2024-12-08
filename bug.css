@@ -1,0 +1,17 @@
+The following CSS code results in unexpected behavior due to specificity issues:
+
+```css
+#myElement {
+  color: blue;
+}
+
+.myElement {
+  color: red;
+}
+
+#myElement.myElement {
+  color: green; 
+}
+```
+
+The element with the ID `myElement` and the class `myElement` will be rendered with the color `green` instead of the expected `blue` because ID selectors have higher specificity than class selectors.  The `#myElement.myElement` selector, though seemingly redundant, overrides the `#myElement` selector due to its higher specificity which can be unexpected.
